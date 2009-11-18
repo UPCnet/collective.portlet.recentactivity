@@ -9,7 +9,6 @@ from OFS.SimpleItem import SimpleItem
 from zope.event import notify
 
 from BTrees.OOBTree import OOBTree
-from BTrees.OIBTree import OIBTree
 
 from persistent import Persistent
 
@@ -20,11 +19,7 @@ class RecentActivityUtility(Persistent):
     """
     implements(IRecentActivityUtility)
 
-    #activities = IOBTree()
-    activities = None
-    
-    def __init__(self):
-        self.activities = OOBTree()
+    activities = OOBTree()
         
     def addActivity(self, timestamp, type, user, object, parent):
         """Add an activity to the BTree.
