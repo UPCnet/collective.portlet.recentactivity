@@ -10,6 +10,12 @@
 
     <include package="plone.app.portlets" />
 
+	<!-- Recent Activity Utility -->
+	<utility
+ 		provides=".interfaces.IRecentActivityUtility"
+ 		factory=".utilities.RecentActivityUtility"
+ 		/>
+ 
     <!-- Generic Setup -->
     <genericsetup:registerProfile
         name="collective.portlet.recentactivity"
