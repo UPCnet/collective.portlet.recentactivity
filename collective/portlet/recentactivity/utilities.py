@@ -6,21 +6,30 @@ from zope.interface import implements
 from zope.app.container.btree import BTreeContainer
 
 from OFS.SimpleItem import SimpleItem
-from BTrees.IOBTree import IOBTree
 from zope.event import notify
+
+from BTrees.OOBTree import OOBTree
+from BTrees.OIBTree import OIBTree
+
+from persistent import Persistent
 
 from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 
-class RecentActivityUtility(SimpleItem):
+class RecentActivityUtility(Persistent):
     """Recent Activity Utility
     """
     implements(IRecentActivityUtility)
 
-    activities = IOBTree()
-
+    #activities = IOBTree()
+    activities = None
+    
+    def __init__(self):
+        self.activities = OOBTree()
+        
     def addActivity(self, timestamp, type, user, object, parent):
         """Add an activity to the BTree.
         """
+
         timestamp = int(time.time())
         activity = {'type': type, 
                     'user': user, 
