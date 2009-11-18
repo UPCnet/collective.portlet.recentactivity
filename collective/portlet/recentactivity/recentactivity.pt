@@ -46,7 +46,7 @@
         <table class="listing" tal:condition="activities">
             <thead>
                 <tr>
-                    <th i18n:translate="column_label_type">Type</th>
+                    <th i18n:translate="column_label_action">Action</th>
                     <th i18n:translate="column_label_user">User</th>
                     <th i18n:translate="column_label_object">Object</th>
                     <th i18n:translate="column_label_parent">Parent</th>                    
@@ -56,7 +56,7 @@
                 <tr tal:repeat="activity activities">
                     <tal:define 
                         tal:define="item python:activity[1]">
-                        <td tal:content="item/type" />
+                        <td tal:content="item/action" />
                     	<td tal:content="item/user" />
         	            <td>
         	            	<a href=""

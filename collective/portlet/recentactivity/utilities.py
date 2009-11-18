@@ -9,6 +9,7 @@ from OFS.SimpleItem import SimpleItem
 from zope.event import notify
 
 from BTrees.OOBTree import OOBTree
+from BTrees.OIBTree import OIBTree
 
 from persistent import Persistent
 
@@ -19,14 +20,18 @@ class RecentActivityUtility(Persistent):
     """
     implements(IRecentActivityUtility)
 
-    activities = OOBTree()
+    #activities = IOBTree()
+    activities = None
+    
+    def __init__(self):
+        self.activities = OOBTree()
         
-    def addActivity(self, timestamp, type, user, object, parent):
+    def addActivity(self, timestamp, action, user, object, parent):
         """Add an activity to the BTree.
         """
 
         timestamp = int(time.time())
-        activity = {'type': type, 
+        activity = {'action': action, 
                     'user': user, 
                     'object': object, 
                     'parent': parent}
@@ -44,5 +49,9 @@ class RecentActivityUtility(Persistent):
         if self.activities:
             return self.activities.iteritems()        
             
-
+    def manage_fixupOwnershipAfterAdd(self):
+        """This is needed, otherwise we get an Attribute Error
+           when we try to install the product.
+        """
+        pass 
 

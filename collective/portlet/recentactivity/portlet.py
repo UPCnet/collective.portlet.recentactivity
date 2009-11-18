@@ -10,6 +10,9 @@ from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
 from Products.CMFPlone import PloneMessageFactory as _
 
+from zope.component import getUtility
+from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
+
 from collective.portlet.recentactivity.interfaces import IRecentActivityPortlet
 
 
@@ -66,19 +69,17 @@ class Renderer(base.Renderer):
     @property
     def available(self):
         """Show the portlet only if there are one or more elements."""
-        return not self.anonymous and len(self._data())
+        return not self.anonymous
 
-    def recent_items(self):
+    def recent_activities(self):
         return self._data()
 
     def recently_modified_link(self):
-        return '%s/recently_modified' % self.portal_url
+        return '%s/@@recent-activity' % self.portal_url
 
     @memoize
     def _data(self):
         limit = self.data.count
-        return self.catalog(portal_type=self.typesToShow,
-                            sort_on='modified',
-                            sort_order='reverse',
-                            sort_limit=limit)[:limit]
+        activities = getUtility(IRecentActivityUtility)
+        return activities.getRecentActivity(limit)
 

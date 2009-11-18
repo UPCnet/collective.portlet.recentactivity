@@ -15,9 +15,9 @@ class IRecentActivityUtility(Interface):
     """ Utility to store recent activity.
     """
 
-    activities = Attribute(u"Tree of activities")
+    #activities = Attribute(u"Tree of activities")
 
-    def addActivity(timestamp, type, user, object, parent):
+    def addActivity(timestamp, action, user, object, parent):
         """Add an activity to the log.
         """
 

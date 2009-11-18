@@ -5,7 +5,7 @@
         <span class="portletTopLeft"></span>
         <a href="#" 
             tal:attributes="href view/recently_modified_link"
-            i18n:translate="box_recent_changes">Recent Changes Example</a>
+            i18n:translate="box_recent_changes">Recent Activity</a>
         <span class="portletTopRight"></span>
     </dt>
 
@@ -13,31 +13,36 @@
                            getIcon nocall:plone_view/getIcon;
                            normalizeString nocall:plone_view/normalizeString;
                            toLocalizedTime nocall:plone_view/toLocalizedTime;"
-               tal:repeat="obj view/recent_items">
+               tal:repeat="activity_tuple view/recent_activities">
 
         <dd class="portletItem"
-            tal:define="oddrow repeat/obj/odd;
-                        item_icon python:getIcon(obj);
-                        item_wf_state obj/review_state;
-                        item_wf_state_class python:'state-' + normalizeString(item_wf_state);"
+            tal:define="activity python:activity_tuple[1];
+                        oddrow repeat/activity_tuple/odd;
+                        item_icon python:getIcon(activity);"
             tal:attributes="class python:oddrow and  'portletItem even' or 'portletItem odd'">
+            User <span tal:replace="activity/user" />
+            <span tal:content="activity/action" />
+            <span tal:content="python:activity['object'].title" />
+            to
+            <span tal:content="python:activity['parent'].title" />
+            <!--
             <a href=""
-               tal:attributes="href string:${obj/getURL}/view;
-                               title obj/Description;
-                               class string:$item_wf_state_class tile">
+               tal:attributes="href string:${activity}/view;
+                               title string:;
+                               class string:tile">
                 <img tal:replace="structure item_icon/html_tag" />
-                <tal:title content="obj/pretty_title_or_id">
+                <tal:title content="activity/pretty_title_or_id">
                     Title
                 </tal:title>
                 <span class="portletItemDetails"
-                      tal:content="python:toLocalizedTime(obj.ModificationDate)"
+                      tal:content="python:toLocalizedTime(activity.ModificationDate)"
                       >May 5</span>
-            </a>
+            </a>-->
         </dd>
     </tal:items>
 
     <dd class="portletItem"
-        tal:condition="not: view/recent_items"
+        tal:condition="not: view/recent_activities"
         i18n:translate="box_recent_no_items">
         No items changed yet.
     </dd>
