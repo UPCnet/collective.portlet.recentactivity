@@ -1,0 +1,68 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.recentactivity">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <include package="plone.app.portlets" />
+
+    <!-- Generic Setup -->
+    <genericsetup:registerProfile
+        name="collective.portlet.recentactivity"
+        title="Recent Activity Portlet"
+        directory="profiles/default"
+        description=""
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <!-- Register Portlet -->
+    <plone:portlet
+        name="collective.portlet.recentactivity.RecentActivityPortlet"
+        interface=".portlet.IRecentActivityPortlet"
+        assignment=".portlet.Assignment"
+        renderer=".portlet.Renderer"
+        addview=".portlet.AddForm"
+        editview=".portlet.EditForm"
+        />
+
+    <!-- Recent Activity Page -->
+    <browser:page 
+        for="Products.CMFCore.interfaces.ISiteRoot" 
+        name="recent-activity" 
+        class=".recentactivity.RecentActivityView" 
+        permission="cmf.ManagePortal"
+        />
+
+    <!-- Added Event Subscriber -->
+    <subscriber
+        handler=".recentactivity.Added"
+        for="Products.Archetypes.interfaces.IObjectInitializedEvent"
+        />
+
+    <!-- Edited Event Subscriber -->
+    <subscriber
+        handler=".recentactivity.Edited"
+        for="Products.Archetypes.interfaces.IObjectEditedEvent"
+        />
+
+	<!--      
+    <subscriber
+        handler=".recentactivity.Moved"
+        for="zope.app.container.interfaces.IObjectMovedEvent"
+        />
+        
+    <subscriber
+        handler=".recentactivity.Copied"
+        for="zope.app.event.interfaces.IObjectCopiedEvent"
+        />
+    <subscriber
+        handler=".recentactivity.Removed"
+        for="zope.app.container.interfaces.IObjectRemovedEvent"
+        />
+	-->
+
+</configure>
