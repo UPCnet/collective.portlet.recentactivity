@@ -1,4 +1,5 @@
-<ol class="recent_activity">
+<ol class="recent_activity"
+    tal:condition="view/available">
 
     <tal:items tal:define="plone_view context/@@plone;
                            getIcon nocall:plone_view/getIcon;
