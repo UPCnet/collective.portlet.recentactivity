@@ -1,3 +1,7 @@
+# -*- encoding: utf-8 -*-
+
+import time
+
 from zope import schema
 from zope.formlib import form
 from zope.interface import implements
@@ -74,8 +78,9 @@ class Renderer(base.Renderer):
     def recent_activities(self):
         context = aq_inner(self.context)        
         for brain in self._data():
-            activity = brain[1]       
-            yield dict(time=brain[0],
+            activity = brain[1]
+            time_since_activity = (int(time.time()) - brain[0])/60
+            yield dict(time=time_since_activity,
                        action=activity['action'],
                        user=activity['user'],
                        user_url="%s/%s" % (context.portal_url(), activity['user']),

@@ -32,7 +32,7 @@
 	               tal:content="python:activity['parent'].title"
 	               tal:attributes="href activity/parent_url" />
 	        </tal:condition>
-            .<br />&mdash <span tal:replace="activity/time" />
+            <br />&mdash <span tal:replace="activity/time" /> minutes ago.
             <!--
             <a href=""
                tal:attributes="href string:${activity}/view;
