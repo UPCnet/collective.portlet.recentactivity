@@ -35,6 +35,14 @@
         editview=".portlet.EditForm"
         />
 
+	<!-- Register Viewlet -->
+	<browser:viewlet
+        name="collective.portlet.recentactivity.RecentActivityViewlet"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+        class=".viewlet.RecentActivityViewlet"
+        permission="zope2.View"
+        />
+	
     <!-- Recent Activity Page -->
     <browser:page 
         for="Products.CMFCore.interfaces.ISiteRoot" 
