@@ -13,18 +13,26 @@
                            getIcon nocall:plone_view/getIcon;
                            normalizeString nocall:plone_view/normalizeString;
                            toLocalizedTime nocall:plone_view/toLocalizedTime;"
-               tal:repeat="activity_tuple view/recent_activities">
+               tal:repeat="activity view/recent_activities">
 
         <dd class="portletItem"
-            tal:define="activity python:activity_tuple[1];
-                        oddrow repeat/activity_tuple/odd;
+            tal:define="oddrow repeat/activity/odd;
                         item_icon python:getIcon(activity);"
             tal:attributes="class python:oddrow and  'portletItem even' or 'portletItem odd'">
-            User <span tal:replace="activity/user" />
+            User <a href=""
+                    tal:content="activity/user"
+                    tal:attributes="href activity/user_url" />
             <span tal:content="activity/action" />
-            <span tal:content="python:activity['object'].title" />
-            to
-            <span tal:content="python:activity['parent'].title" />
+            <a href=""
+               tal:content="python:activity['object'].title"
+               tal:attributes="href activity/object_url" />
+            <tal:condition tal:condition="python: activity['action'] == 'added'">
+	            to
+	            <a href=""
+	               tal:content="python:activity['parent'].title"
+	               tal:attributes="href activity/parent_url" />
+	        </tal:condition>
+            .<br />&mdash <span tal:replace="activity/time" />
             <!--
             <a href=""
                tal:attributes="href string:${activity}/view;

@@ -29,12 +29,15 @@ class RecentActivityUtility(Persistent):
     def addActivity(self, timestamp, action, user, object, parent):
         """Add an activity to the BTree.
         """
-
+        
         timestamp = int(time.time())
         activity = {'action': action, 
                     'user': user, 
-                    'object': object, 
-                    'parent': parent}
+                    'object': object,
+                    'object_url': object.absolute_url(),
+                    'parent': parent,
+                    'parent_url': parent.absolute_url(),
+                    }
         self.activities.insert(timestamp, activity)
         
         #from zope.container.contained import ObjectAddedEvent
