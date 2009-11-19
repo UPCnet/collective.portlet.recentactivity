@@ -45,28 +45,28 @@
 
     <!-- Added Event Subscriber -->
     <subscriber
-        handler=".recentactivity.Added"
+        handler=".events.Added"
         for="Products.Archetypes.interfaces.IObjectInitializedEvent"
         />
 
     <!-- Edited Event Subscriber -->
     <subscriber
-        handler=".recentactivity.Edited"
+        handler=".events.Edited"
         for="Products.Archetypes.interfaces.IObjectEditedEvent"
         />
 
 	<!--      
     <subscriber
-        handler=".recentactivity.Moved"
+        handler=".events.Moved"
         for="zope.app.container.interfaces.IObjectMovedEvent"
         />
         
     <subscriber
-        handler=".recentactivity.Copied"
+        handler=".events.Copied"
         for="zope.app.event.interfaces.IObjectCopiedEvent"
         />
     <subscriber
-        handler=".recentactivity.Removed"
+        handler=".events.Removed"
         for="zope.app.container.interfaces.IObjectRemovedEvent"
         />
 	-->
