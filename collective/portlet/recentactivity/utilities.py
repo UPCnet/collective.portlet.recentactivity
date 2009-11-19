@@ -47,7 +47,9 @@ class RecentActivityUtility(Persistent):
         """Get all activities stored in the BTree.
         """
         if self.activities:
-            return self.activities.iteritems()        
+            # Return activities sorted by timestamp
+            return sorted(self.activities.items(), reverse=True)
+       
             
     def manage_fixupOwnershipAfterAdd(self):
         """This is needed, otherwise we get an Attribute Error
