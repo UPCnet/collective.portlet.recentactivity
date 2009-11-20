@@ -9,6 +9,8 @@ from plone.memoize.instance import memoize
 
 from zope.component import getMultiAdapter
 
+from utils import compute_time
+
 import time
 
 class RecentActivityViewlet(ViewletBase):
@@ -28,8 +30,7 @@ class RecentActivityViewlet(ViewletBase):
         context = aq_inner(self.context)        
         for brain in self._data():
             activity = brain[1]
-            time_since_activity = (int(time.time()) - brain[0])/60
-            yield dict(time=time_since_activity,
+            yield dict(time=compute_time(int(time.time()) - brain[0]),
                        action=activity['action'],
                        user=activity['user'],
                        user_url="%s/%s" % (context.portal_url(), activity['user']),

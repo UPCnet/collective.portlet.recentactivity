@@ -32,20 +32,19 @@
 	               tal:content="python:activity['parent'].title"
 	               tal:attributes="href activity/parent_url" />
 	        </tal:condition>
-            <br />&mdash <span tal:replace="activity/time" /> minutes ago.
-            <!--
-            <a href=""
-               tal:attributes="href string:${activity}/view;
-                               title string:;
-                               class string:tile">
-                <img tal:replace="structure item_icon/html_tag" />
-                <tal:title content="activity/pretty_title_or_id">
-                    Title
-                </tal:title>
-                <span class="portletItemDetails"
-                      tal:content="python:toLocalizedTime(activity.ModificationDate)"
-                      >May 5</span>
-            </a>-->
+            <br />&mdash
+            <tal:block tal:condition="activity/time/days">
+            	<span tal:replace="activity/time/days" /> days and
+            </tal:block>
+            <tal:block tal:condition="activity/time/hours"> 
+            	<span tal:replace="activity/time/hours" /> hours and
+            </tal:block>
+            <tal:block tal:condition="activity/time/minutes">
+            	<span tal:replace="activity/time/minutes" /> minutes ago.
+            </tal:block>
+			<tal:block tal:condition="python: not activity['time']['days'] and not activity['time']['hours'] and not activity['time']['minutes']">
+            	less than one minute ago.
+            </tal:block>  
         </dd>
     </tal:items>
 
