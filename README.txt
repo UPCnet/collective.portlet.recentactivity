@@ -1,7 +1,33 @@
 Introduction
 ============
 
-collective.portlet.recentactivity is a replacement for the
-regular "recent" Plone portlet. It uses Facebook like entries
-to show recent activities to the user, e.g. "the user admin
-added 'News Item 1' to 'News'".
+collective.portlet.recentactivity provides a portlet and a viewlet
+with Facebook like entries on recent user activities, e.g. "the 
+user admin added 'News Item 1' to 'News'".
+
+
+Buildout Installation
+=====================
+
+To install collective.portlet.recentactivity, add the following code 
+to your buildout.cfg::
+
+    [instance]
+    ...
+    eggs =
+        ...
+        collective.portlet.recentactivity
+
+    ...
+
+    zcml =
+        ...
+        collective.portlet.recentactivity
+
+
+Known Issues
+============
+
+The log entries only work for Archetype content types. Though, it 
+should be fairly easy to replace the Archetype specific event handlers
+with ones that work for other types of content.
