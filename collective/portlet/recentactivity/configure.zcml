@@ -44,6 +44,7 @@
         permission="zope2.View"
         />
 	-->
+
     <!-- Recent Activity Page -->
     <browser:page 
         for="Products.CMFCore.interfaces.ISiteRoot" 
