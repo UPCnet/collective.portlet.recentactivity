@@ -34,7 +34,7 @@ class RecentActivityViewlet(ViewletBase):
                 yield dict(time=compute_time(int(time.time()) - brain[0]),
                            action=activity['action'],
                            user=activity['user'],
-                           user_url="%s/%s" % (context.portal_url(), activity['user']),
+                           user_url="%s/author/%s" % (context.portal_url(), activity['user']),
                            object=activity['object'],
                            object_url=activity['object_url'],
                            parent=activity['parent'],
