@@ -21,7 +21,7 @@ def Added(event):
     activities = getUtility(IRecentActivityUtility)
     activities.addActivity(DateTime(),
                            "added",
-                            getSecurityManager().getUser().getId(),
+                            getSecurityManager().getUser().getUserName(),
                             event.object, 
                             aq_parent(event.object))
 
@@ -29,7 +29,7 @@ def Edited(event):
     activities = getUtility(IRecentActivityUtility)
     activities.addActivity(DateTime(),
                            "edited",
-                            getSecurityManager().getUser().getId(),
+                            getSecurityManager().getUser().getUserName(),
                             event.object, 
                             aq_parent(event.object))    
     
