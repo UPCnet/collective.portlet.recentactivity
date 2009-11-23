@@ -44,9 +44,9 @@ class RecentActivityUtility(Persistent):
         #from zope.container.contained import notifyContainerModified
         #notify(ObjectAddedEvent(object, self.activities, str(uid)))
         #notifyContainerModified(self.activities)
-        return self.activities[timestamp]
+        return timestamp
 
-    def getRecentActivity(self, items):
+    def getRecentActivity(self, items=5):
         """Get all activities stored in the BTree.
         """
         if self.activities:
