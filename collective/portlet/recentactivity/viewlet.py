@@ -27,18 +27,19 @@ class RecentActivityViewlet(ViewletBase):
     def recent_activities(self):
         """Recent activities, most recent activities come first.
         """
-        context = aq_inner(self.context)        
-        for brain in self._data():
-            activity = brain[1]
-            yield dict(time=compute_time(int(time.time()) - brain[0]),
-                       action=activity['action'],
-                       user=activity['user'],
-                       user_url="%s/%s" % (context.portal_url(), activity['user']),
-                       object=activity['object'],
-                       object_url=activity['object_url'],
-                       parent=activity['parent'],
-                       parent_url=activity['parent_url'],
-                       )
+        context = aq_inner(self.context)
+        if self._data():     
+            for brain in self._data():
+                activity = brain[1]
+                yield dict(time=compute_time(int(time.time()) - brain[0]),
+                           action=activity['action'],
+                           user=activity['user'],
+                           user_url="%s/%s" % (context.portal_url(), activity['user']),
+                           object=activity['object'],
+                           object_url=activity['object_url'],
+                           parent=activity['parent'],
+                           parent_url=activity['parent_url'],
+                           )
                                         
     def recently_modified_link(self):
         return '%s/@@recent-activity' % self.portal_url
