@@ -12,9 +12,11 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
 from plone.memoize.instance import memoize
-from Products.CMFPlone import PloneMessageFactory as _
 
 from zope.component import getUtility
+
+from collective.portlet.recentactivity import RecentActivityPortletMessageFactory as _
+
 from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 
 from collective.portlet.recentactivity.interfaces import IRecentActivityPortlet

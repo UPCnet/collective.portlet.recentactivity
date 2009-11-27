@@ -1,7 +1,7 @@
 <ol class="recent_activity"
     tal:condition="view/available">
 
-	<h2>Recent Activities</h2>
+	<h2 i18n:translate="recent_activities">Recent Activities</h2>
 	
     <tal:items tal:define="plone_view context/@@plone;
                            getIcon nocall:plone_view/getIcon;
@@ -13,32 +13,39 @@
             tal:define="oddrow repeat/activity/odd;
                         item_icon python:getIcon(activity);"
             tal:attributes="class python:oddrow and  'portletItem even' or 'portletItem odd'">
-            User <a href=""
-                    tal:content="activity/user"
-                    tal:attributes="href activity/user_url" />
+            <span i18n:translate="user">User</span>            
+            <a href=""
+               tal:content="activity/user"
+               tal:attributes="href activity/user_url" />
             <span tal:content="activity/action" />
             <a href=""
                tal:content="python:activity['object'].title"
                tal:attributes="href activity/object_url" />
             <tal:condition tal:condition="python: activity['action'] == 'added'">
-	            to
+	            <span i18n:translate="to">to</span>
 	            <a href=""
 	               tal:content="python:activity['parent'].title"
 	               tal:attributes="href activity/parent_url" />
 	        </tal:condition>
-            <br />&mdash
+            <br />&mdash;
             <tal:block tal:condition="activity/time/days">
-            	<span tal:replace="activity/time/days" /> days and
+            	<span tal:replace="activity/time/days" /> 
+            	<span i18n:translate="days">days</span>
+            	<span i18n:translate="and">and</span>
             </tal:block>
             <tal:block tal:condition="activity/time/hours"> 
-            	<span tal:replace="activity/time/hours" /> hours and
+            	<span tal:replace="activity/time/hours" />
+            	<span i18n:translate="hours">hours</span>
+            	<span i18n:translate="and">and</span>
             </tal:block>
             <tal:block tal:condition="activity/time/minutes">
-            	<span tal:replace="activity/time/minutes" /> minutes ago.
+            	<span tal:replace="activity/time/minutes" />
+            	<span i18n:translate="minutes">minutes</span>
+            	<span i18n:translate="ago">ago</span>.
             </tal:block>
 			<tal:block tal:condition="python: not activity['time']['days'] and not activity['time']['hours'] and not activity['time']['minutes']">
-            	less than one minute ago.
-            </tal:block>            
+            	<span i18n:translate="less_than_one_minute_ago">less than one minute ago</span>.
+            </tal:block>
         </li>
     </tal:items>
 

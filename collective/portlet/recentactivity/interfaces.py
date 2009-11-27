@@ -2,7 +2,7 @@ from zope import schema
 
 from zope.interface import Interface, Attribute
 from plone.portlets.interfaces import IPortletDataProvider
-from Products.CMFPlone import PloneMessageFactory as _
+from collective.portlet.recentactivity import RecentActivityPortletMessageFactory as _
 
 
 class IRecentActivityPortlet(IPortletDataProvider):
