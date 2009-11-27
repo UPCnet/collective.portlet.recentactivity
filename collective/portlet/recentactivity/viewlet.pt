@@ -1,4 +1,7 @@
 <ol class="recent_activity"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    i18n:domain="collective.portlet.recentactivity"
     tal:condition="view/available">
 
 	<h2 i18n:translate="recent_activities">Recent Activities</h2>
