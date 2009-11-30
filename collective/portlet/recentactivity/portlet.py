@@ -38,7 +38,7 @@ class Assignment(base.Assignment):
 
     @property
     def title(self):
-        return _(u"Recent items example")
+        return _(u"Recent Activity Portlet")
 
 class AddForm(base.AddForm):
     form_fields = form.Fields(IRecentActivityPortlet)
