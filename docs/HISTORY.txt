@@ -1,7 +1,15 @@
 Changelog
 =========
 
+
+1.0b1 (2009-11-30)
+------------------
+
+- Catalan, Spanish, and German translation added. [timo]
+- Limit for items to show up in viewlet/portlet fixed. [timo]d
+
+
 1.0a1 (2009-11-23)
 ------------------
 
-- Initial release
+- Initial release. [timo]
