@@ -51,7 +51,7 @@ class RecentActivityUtility(Persistent):
         """
         if self.activities:
             # Return activities sorted by timestamp
-            return sorted(self.activities.items(), reverse=True)
+            return sorted(self.activities.items(), reverse=True)[:items]
        
             
     def manage_fixupOwnershipAfterAdd(self):
