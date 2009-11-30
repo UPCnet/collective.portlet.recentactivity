@@ -40,9 +40,9 @@
 		           />
 			</tal:block>
 
-			<!-- Modified -->
+			<!-- Edited -->
             <tal:block i18n:translate=""
-                       tal:condition="python: activity['action'] == 'modified'">
+                       tal:condition="python: activity['action'] == 'edited'">
             	User        
 	            <a href=""
                    tal:content="activity/user"
