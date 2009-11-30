@@ -16,7 +16,7 @@ CURRENT_PATH=`pwd`
 PRODUCTNAME="collective.portlet.recentactivity"
 
 # List of languages
-LANGUAGES="en de es ca"
+LANGUAGES="ca es de"
 
 # Create locales folder structure for languages
 install -d locales
