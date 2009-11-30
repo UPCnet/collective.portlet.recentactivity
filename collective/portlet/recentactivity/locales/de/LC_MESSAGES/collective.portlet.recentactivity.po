@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-11-27 11:40+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Project-Id-Version: 1.0b1\n"
+"POT-Creation-Date: 2009-11-30 10:16+0000\n"
+"PO-Revision-Date: 2009-11-30 11:01+0100\n"
+"Last-Translator: Timo Stollenwerk <timo@zmag.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -14,121 +14,94 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./portlet.pt:71
+#: ./viewlet.pt:66
+msgid "${days} days, ${hours} hours, and ${minutes} minutes ago."
+msgstr "Vor ${days} Tagen, ${hours} Stunden und ${minutes} Minuten."
+
 #: ./portlet.py:45
 msgid "Add Recent Activity Portlet"
-msgstr ""
+msgstr "Letzte Aktivitäten Portlet hinzufügen"
 
 #: ./portlet.py:53
 msgid "Edit Recent Portlet"
-msgstr ""
+msgstr "Letzte Aktivitäten Portlet editieren"
 
 #: ./interfaces.py:10
 #: ./portlet.py:28
 msgid "How many items to list."
-msgstr ""
+msgstr "Wie viele Einträge sollen angezeigt werden."
 
 #: ./interfaces.py:9
 #: ./portlet.py:27
 msgid "Number of items to display"
-msgstr ""
+msgstr "Anzahl der Einträge die angezeigt werden"
 
 #: ./portlet.py:41
-msgid "Recent items example"
-msgstr ""
+msgid "Recent Activity Portlet"
+msgstr "Aktuelle Änderungen Portlet"
 
 #: ./portlet.py:46
 msgid "This portlet displays recently modified content."
-msgstr ""
+msgstr "Dieses Portlet zeigt kürzlich geänderte Inhalte an."
 
-#: ./portlet.pt:52
-#: ./viewlet.pt:47
-msgid "ago"
-msgstr ""
+#: ./portlet.pt:41
+#: ./viewlet.pt:36
+msgid "User ${username} added ${object} to ${parent}"
+msgstr "Benutzer ${username} fügte ${object} in ${parent} ein"
 
-#: ./portlet.pt:42
-#: ./viewlet.pt:37
-msgid "and"
-msgstr ""
+#: ./portlet.pt:58
+#: ./viewlet.pt:53
+msgid "User ${username} modified ${object}"
+msgstr "Benutzer ${username} hat ${object} geändert"
 
 #. Default: "All recent changes…"
-#: ./portlet.pt:67
+#: ./portlet.pt:85
 msgid "box_more_recently_changed"
-msgstr ""
+msgstr "Alle Änderungen..."
 
 #. Default: "Recent Activity"
 #: ./portlet.pt:8
 msgid "box_recent_changes"
-msgstr ""
+msgstr "Aktuelle Änderungen"
 
 #. Default: "No items changed yet."
-#: ./portlet.pt:60
+#: ./portlet.pt:78
 msgid "box_recent_no_items"
-msgstr ""
+msgstr "Bisher wurden keine Aktivitäten vorgenommen."
 
 #. Default: "Action"
 #: ./recentactivity.pt:49
 msgid "column_label_action"
-msgstr ""
+msgstr "Aktion"
 
 #. Default: "Object"
 #: ./recentactivity.pt:51
 msgid "column_label_object"
-msgstr ""
+msgstr "Objekt"
 
 #. Default: "Parent"
 #: ./recentactivity.pt:52
 msgid "column_label_parent"
-msgstr ""
+msgstr "Ordner"
 
 #. Default: "User"
 #: ./recentactivity.pt:50
 msgid "column_label_user"
-msgstr ""
-
-#: ./portlet.pt:41
-#: ./viewlet.pt:36
-msgid "days"
-msgstr ""
+msgstr "Benutzer"
 
 #. Default: "This report shows all recent activities."
 #: ./recentactivity.pt:24
 msgid "description_recent_activity_report"
-msgstr ""
+msgstr "Hier werden die letzten Aktivitäten aufgelistet."
 
 #. Default: "Recent activity"
 #: ./recentactivity.pt:19
 msgid "header_recent_activity_report"
-msgstr ""
-
-#: ./portlet.pt:46
-#: ./viewlet.pt:41
-msgid "hours"
-msgstr ""
-
-#. Default: "less than one minute ago"
-#: ./portlet.pt:55
-#: ./viewlet.pt:50
-msgid "less_than_one_minute_ago"
-msgstr ""
-
-#: ./portlet.pt:51
-#: ./viewlet.pt:46
-msgid "minutes"
-msgstr ""
+msgstr "Aktuelle Änderungen"
 
 #. Default: "Recent Activities"
 #: ./viewlet.pt:7
 msgid "recent_activities"
-msgstr ""
-
-#: ./portlet.pt:33
-#: ./viewlet.pt:28
-msgid "to"
-msgstr ""
-
-#. Default: "User"
-#: ./portlet.pt:24
-#: ./viewlet.pt:19
-msgid "user"
-msgstr ""
+msgstr "Aktuelle Änderungen"
 

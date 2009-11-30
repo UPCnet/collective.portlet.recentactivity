@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-11-27 11:40+0000\n"
+"POT-Creation-Date: 2009-11-30 10:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.recentactivity\n"
+
+#: ./portlet.pt:71
+#: ./viewlet.pt:66
+msgid "${days} days, ${hours} hours, and ${minutes} minutes ago."
+msgstr ""
 
 #: ./portlet.py:45
 msgid "Add Recent Activity Portlet"
@@ -36,25 +41,25 @@ msgid "Number of items to display"
 msgstr ""
 
 #: ./portlet.py:41
-msgid "Recent items example"
+msgid "Recent Activity Portlet"
 msgstr ""
 
 #: ./portlet.py:46
 msgid "This portlet displays recently modified content."
 msgstr ""
 
-#: ./portlet.pt:52
-#: ./viewlet.pt:47
-msgid "ago"
+#: ./portlet.pt:41
+#: ./viewlet.pt:36
+msgid "User ${username} added ${object} to ${parent}"
 msgstr ""
 
-#: ./portlet.pt:42
-#: ./viewlet.pt:37
-msgid "and"
+#: ./portlet.pt:58
+#: ./viewlet.pt:53
+msgid "User ${username} modified ${object}"
 msgstr ""
 
 #. Default: "All recent changes…"
-#: ./portlet.pt:67
+#: ./portlet.pt:85
 msgid "box_more_recently_changed"
 msgstr ""
 
@@ -64,7 +69,7 @@ msgid "box_recent_changes"
 msgstr ""
 
 #. Default: "No items changed yet."
-#: ./portlet.pt:60
+#: ./portlet.pt:78
 msgid "box_recent_no_items"
 msgstr ""
 
@@ -88,11 +93,6 @@ msgstr ""
 msgid "column_label_user"
 msgstr ""
 
-#: ./portlet.pt:41
-#: ./viewlet.pt:36
-msgid "days"
-msgstr ""
-
 #. Default: "This report shows all recent activities."
 #: ./recentactivity.pt:24
 msgid "description_recent_activity_report"
@@ -103,35 +103,8 @@ msgstr ""
 msgid "header_recent_activity_report"
 msgstr ""
 
-#: ./portlet.pt:46
-#: ./viewlet.pt:41
-msgid "hours"
-msgstr ""
-
-#. Default: "less than one minute ago"
-#: ./portlet.pt:55
-#: ./viewlet.pt:50
-msgid "less_than_one_minute_ago"
-msgstr ""
-
-#: ./portlet.pt:51
-#: ./viewlet.pt:46
-msgid "minutes"
-msgstr ""
-
 #. Default: "Recent Activities"
 #: ./viewlet.pt:7
 msgid "recent_activities"
-msgstr ""
-
-#: ./portlet.pt:33
-#: ./viewlet.pt:28
-msgid "to"
-msgstr ""
-
-#. Default: "User"
-#: ./portlet.pt:24
-#: ./viewlet.pt:19
-msgid "user"
 msgstr ""
 
