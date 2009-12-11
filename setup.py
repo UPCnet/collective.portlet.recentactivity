@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b2'
+version = '1.0b1'
 
 setup(name='collective.portlet.recentactivity',
       version=version,
-      description="",
+      description="Recent activity portlet for Plone.",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
