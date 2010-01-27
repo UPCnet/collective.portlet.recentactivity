@@ -1,7 +1,7 @@
 Introduction
 ============
 
-collective.portlet.recentactivity provides a portlet and a viewlet
+collective.portlet.recentactivity provides a Portlet and a Viewlet
 with Facebook like entries on recent user activities, e.g. "the 
 user admin added 'News Item 1' to 'News' 10 minutes ago".
 
