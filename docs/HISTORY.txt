@@ -4,7 +4,7 @@ Changelog
 1.0b2 (2010-01-27)
 ------------------
 
-- Fix "iteration over non-sequence" error, when there are no recent activities.
+- Fix "iteration over non-sequence" error, when there are no recent activities. [timo]
 
 1.0b1 (2009-12-11)
 ------------------
