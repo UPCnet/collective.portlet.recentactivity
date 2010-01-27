@@ -11,12 +11,19 @@
         <span class="portletTopRight"></span>
     </dt>
 
+    <dd class="portletItem"
+        tal:condition="not: view/has_recent_activities"
+        i18n:translate="label_no_recent_activities">
+        No recent activities.
+    </dd>
+    
     <tal:items tal:define="plone_view context/@@plone;
                            getIcon nocall:plone_view/getIcon;
                            normalizeString nocall:plone_view/normalizeString;
                            toLocalizedTime nocall:plone_view/toLocalizedTime;"
+               tal:condition="view/has_recent_activities"
                tal:repeat="activity view/recent_activities">
-
+            
         <dd class="portletItem"
             tal:define="oddrow repeat/activity/odd;
                         item_icon python:getIcon(activity);"

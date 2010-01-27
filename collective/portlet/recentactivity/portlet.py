@@ -78,20 +78,24 @@ class Renderer(base.Renderer):
         """Show the portlet only if there are one or more elements."""
         return not self.anonymous
 
+    def has_recent_activities(self):
+        return self._data()
+        
+    @memoize
     def recent_activities(self):
-        context = aq_inner(self.context)        
+        context = aq_inner(self.context)
         for brain in self._data():
-            activity = brain[1]
-            yield dict(time=compute_time(int(time.time()) - brain[0]),
-                       action=activity['action'],
-                       user=activity['user'],
-                       user_url="%s/author/%s" % (context.portal_url(), activity['user']),
-                       object=activity['object'],
-                       object_url=activity['object_url'],
-                       parent=activity['parent'],
-                       parent_url=activity['parent_url'],
-                       )
-                                        
+             activity = brain[1]
+             yield dict(time=compute_time(int(time.time()) - brain[0]),
+                        action=activity['action'],
+                        user=activity['user'],
+                        user_url="%s/author/%s" % (context.portal_url(), activity['user']),
+                        object=activity['object'],
+                        object_url=activity['object_url'],
+                        parent=activity['parent'],
+                        parent_url=activity['parent_url'],
+                        )
+                                            
     def recently_modified_link(self):
         return '%s/@@recent-activity' % self.portal_url
 
