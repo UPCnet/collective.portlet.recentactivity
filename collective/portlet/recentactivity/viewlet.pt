@@ -13,10 +13,37 @@
                tal:repeat="activity view/recent_activities">
 
         <li class="portletItem"
+            style="clear: both;"
             tal:define="oddrow repeat/activity/odd;
                         item_icon python:getIcon(activity);"
             tal:attributes="class python:oddrow and  'portletItem even' or 'portletItem odd'">
 
+            <!-- User Image -->
+            <div class="userImage"
+                 style="float: left;"
+                 tal:define="isAnon view/is_anonymous;
+                             username activity/user;
+                             user_home_url python:view.get_user_home_url(username);
+                             has_user_home_url python:user_home_url and not isAnon;
+                             portrait_url python:view.get_user_portrait(username);">
+                <a href="" tal:condition="has_user_home_url"
+                           tal:attributes="href user_home_url">
+                     <img src="defaultUser.gif"
+                          alt=""
+                          border="0"
+                          width="75"
+                          tal:attributes="src portrait_url;
+                                          alt username" />
+                </a>
+                <img src="defaultUser.gif"
+                     alt=""
+                     border="0"
+                     width="75"
+                     tal:condition="not: has_user_home_url"
+                     tal:attributes="src portrait_url;
+                                     alt username" />
+            </div>
+            
 			<!-- Added -->
             <tal:block i18n:translate=""
                        tal:condition="python: activity['action'] == 'added'">

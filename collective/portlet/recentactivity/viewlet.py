@@ -1,17 +1,21 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.app.layout.viewlets.common import ViewletBase
-
-from zope.component import getUtility
-from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
+import time
 
 from Acquisition import aq_inner
-from plone.memoize.instance import memoize
 
+from zope.component import getUtility
 from zope.component import getMultiAdapter
+
+from Products.CMFCore.utils import getToolByName
+
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+from plone.app.layout.viewlets.common import ViewletBase
+
+from plone.memoize.instance import memoize
 
 from utils import compute_time
 
-import time
+from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 
 class RecentActivityViewlet(ViewletBase):
     index = ViewPageTemplateFile('viewlet.pt')
@@ -50,3 +54,22 @@ class RecentActivityViewlet(ViewletBase):
         limit = 5
         activities = getUtility(IRecentActivityUtility)
         return activities.getRecentActivity(limit)
+
+    def is_anonymous(self):
+        portal_membership = getToolByName(self.context, 'portal_membership', None)
+        return portal_membership.isAnonymousUser()
+        
+    def get_user_home_url(self, username):
+        if username is None:
+            return None
+        else:
+            return "%s/author/%s" % (self.context.portal_url(), username)
+        
+    def get_user_portrait(self, username):
+        if username is None:
+            # return the default user image if no username is given
+            return 'defaultUser.gif'
+        else:
+            portal_membership = getToolByName(self.context, 'portal_membership', None)
+            return portal_membership.getPersonalPortrait(username).absolute_url();
+        
