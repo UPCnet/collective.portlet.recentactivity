@@ -2,8 +2,10 @@ from datetime import datetime
 import logging
 import Globals
 import os.path
-from AccessControl import getSecurityManager,ClassSecurityInfo
+from AccessControl import getSecurityManager, ClassSecurityInfo
 from Products.Five import BrowserView
+
+from zope.app.component.hooks import getSite
 
 from zope.component import getUtility
 
@@ -19,17 +21,23 @@ from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 
 def Added(event):
     activities = getUtility(IRecentActivityUtility)
+    username = getSecurityManager().getUser().getProperty('fullname')
+    if username == '':
+        username = getSecurityManager().getUser().getUserName()
     activities.addActivity(DateTime(),
                            "added",
-                            getSecurityManager().getUser().getUserName(),
-                            event.object, 
+                            username,
+                            event.object,
                             aq_parent(event.object))
 
 def Edited(event):
     activities = getUtility(IRecentActivityUtility)
+    username = getSecurityManager().getUser().getProperty('fullname')
+    if username == '':
+        username = getSecurityManager().getUser().getUserName()
     activities.addActivity(DateTime(),
                            "edited",
-                            getSecurityManager().getUser().getUserName(),
+                            username,
                             event.object, 
                             aq_parent(event.object))    
     
