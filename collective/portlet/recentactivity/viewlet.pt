@@ -47,7 +47,6 @@
 			<!-- Added -->
             <tal:block i18n:translate=""
                        tal:condition="python: activity['action'] == 'added'">
-            	User        
 	            <a href=""
                    tal:content="activity/user"
                    tal:attributes="href activity/user_url"
@@ -70,7 +69,6 @@
 			<!-- Edited -->
             <tal:block i18n:translate=""
                        tal:condition="python: activity['action'] == 'edited'">
-            	User        
 	            <a href=""
                    tal:content="activity/user"
                    tal:attributes="href activity/user_url"
