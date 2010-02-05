@@ -4,6 +4,7 @@ Changelog
 1.0b4 (2010-02-05)
 ------------------
 
+- Fix time not showing up in recent activity Viewlet. [timo]
 - Show full user name if available. [timo]
 - Remove 'User ...' from recent activity Viewlet and Portlet. [timo]
 

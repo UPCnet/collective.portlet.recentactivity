@@ -84,13 +84,12 @@
 
             <br />&mdash;
 
-            <tal:block tal:condition="activity/time/days"
-            		   i18n:translate="">       
-  				<span tal:content="activity/time/days" i18n:name="days" /> days,
-  				<span tal:content="activity/time/hours" i18n:name="hours" /> hours, and
-  				<span tal:content="activity/time/minutes" i18n:name="minutes" /> minutes
-  				ago.
-			</tal:block>
+            <tal:block i18n:translate="">       
+                <span tal:content="activity/time/days" i18n:name="days" /> days,
+                <span tal:content="activity/time/hours" i18n:name="hours" /> hours, and
+                <span tal:content="activity/time/minutes" i18n:name="minutes" /> minutes
+                ago.
+            </tal:block>
 
         </li>
     </tal:items>
