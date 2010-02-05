@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-11-30 10:16+0000\n"
+"POT-Creation-Date: 2010-02-05 11:40+0000\n"
 "PO-Revision-Date: 2009-11-30 11:24+0100\n"
 "Last-Translator: Timo Stollenwerk <timo@zmag.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,10 +14,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./portlet.pt:71
-#: ./viewlet.pt:66
+#: ./portlet.pt:75
+#: ./viewlet.pt:90
 msgid "${days} days, ${hours} hours, and ${minutes} minutes ago."
 msgstr "Hace ${days} dias, ${hours} horas y ${minutes} minutos."
+
+#: ./portlet.pt:47
+#: ./viewlet.pt:62
+msgid "${username} added ${object} to ${parent}"
+msgstr "${username} ha afegit ${object} a ${parent}"
+
+#: ./portlet.pt:63
+#: ./viewlet.pt:78
+msgid "${username} modified ${object}"
+msgstr "${username} ha editado ${object}"
 
 #: ./portlet.py:45
 msgid "Add Recent Activity Portlet"
@@ -45,18 +55,8 @@ msgstr ""
 msgid "This portlet displays recently modified content."
 msgstr ""
 
-#: ./portlet.pt:41
-#: ./viewlet.pt:36
-msgid "User ${username} added ${object} to ${parent}"
-msgstr ""
-
-#: ./portlet.pt:58
-#: ./viewlet.pt:53
-msgid "User ${username} modified ${object}"
-msgstr "El usario ${username} ha editado ${object}"
-
 #. Default: "All recent changes…"
-#: ./portlet.pt:85
+#: ./portlet.pt:89
 msgid "box_more_recently_changed"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgid "box_recent_changes"
 msgstr ""
 
 #. Default: "No items changed yet."
-#: ./portlet.pt:78
+#: ./portlet.pt:82
 msgid "box_recent_no_items"
 msgstr ""
 
@@ -98,6 +98,11 @@ msgstr ""
 #. Default: "Recent activity"
 #: ./recentactivity.pt:19
 msgid "header_recent_activity_report"
+msgstr ""
+
+#. Default: "No recent activities."
+#: ./portlet.pt:14
+msgid "label_no_recent_activities"
 msgstr ""
 
 #. Default: "Recent Activities"

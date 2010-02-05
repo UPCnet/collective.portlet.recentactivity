@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.portlet.recentactivity\n"
-"POT-Creation-Date: 2009-11-30 10:16+0000\n"
+"POT-Creation-Date: 2010-02-05 11:40+0000\n"
 "PO-Revision-Date: 10/12/2009 16:40+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Roger Domènech Aguilera roger.domenech.aguilera@upcnet.es\n"
@@ -14,10 +14,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.portlet.recentactivity\n"
 
-#: ./portlet.pt:71
-#: ./viewlet.pt:66
+#: ./portlet.pt:75
+#: ./viewlet.pt:90
 msgid "${days} days, ${hours} hours, and ${minutes} minutes ago."
 msgstr "Fa ${days} dies, ${hours} hores i ${minutes} minuts."
+
+#: ./portlet.pt:47
+#: ./viewlet.pt:62
+msgid "${username} added ${object} to ${parent}"
+msgstr "${username} ha afegit ${object} a ${parent}"
+
+#: ./portlet.pt:63
+#: ./viewlet.pt:78
+msgid "${username} modified ${object}"
+msgstr "L'usuari ${username} ha modificat ${object}"
 
 #: ./portlet.py:45
 msgid "Add Recent Activity Portlet"
@@ -45,18 +55,8 @@ msgstr "Portlet d'activitat recent"
 msgid "This portlet displays recently modified content."
 msgstr "Aquest portlet mostra el contingut modificat recentment."
 
-#: ./portlet.pt:41
-#: ./viewlet.pt:36
-msgid "User ${username} added ${object} to ${parent}"
-msgstr "L'Usuari ${username} ha afegit ${object} a ${parent}"
-
-#: ./portlet.pt:58
-#: ./viewlet.pt:53
-msgid "User ${username} modified ${object}"
-msgstr "L'usuari ${username} ha modificat ${object}"
-
 #. Default: "All recent changes…"
-#: ./portlet.pt:85
+#: ./portlet.pt:89
 msgid "box_more_recently_changed"
 msgstr "Tots els canvis recents..."
 
@@ -66,7 +66,7 @@ msgid "box_recent_changes"
 msgstr "Activitat recent"
 
 #. Default: "No items changed yet."
-#: ./portlet.pt:78
+#: ./portlet.pt:82
 msgid "box_recent_no_items"
 msgstr "Encara no hi ha elements que hagin canviat"
 
@@ -100,7 +100,13 @@ msgstr "Aquest informe mostra totes les activitats recents"
 msgid "header_recent_activity_report"
 msgstr "Activitat recent"
 
+#. Default: "No recent activities."
+#: ./portlet.pt:14
+msgid "label_no_recent_activities"
+msgstr ""
+
 #. Default: "Recent Activities"
 #: ./viewlet.pt:7
 msgid "recent_activities"
 msgstr "Activitats Recents"
+
