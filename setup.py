@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b4'
+version = '1.0b5'
 
 setup(name='collective.portlet.recentactivity',
       version=version,
@@ -27,11 +27,7 @@ setup(name='collective.portlet.recentactivity',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
-      # -*- Entry points: -*-
-
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins = ["ZopeSkel"],
       )
