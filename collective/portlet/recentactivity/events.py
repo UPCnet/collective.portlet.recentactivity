@@ -22,8 +22,8 @@ from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 def Added(event):
     activities = getUtility(IRecentActivityUtility)
     username = getSecurityManager().getUser().getProperty('fullname')
-    if username == '':
-        username = getSecurityManager().getUser().getUserName()
+    if not username or username == '':
+        username = getSecurityManager().getUser().getId()
     activities.addActivity(DateTime(),
                            "added",
                             username,
@@ -33,8 +33,8 @@ def Added(event):
 def Edited(event):
     activities = getUtility(IRecentActivityUtility)
     username = getSecurityManager().getUser().getProperty('fullname')
-    if username == '':
-        username = getSecurityManager().getUser().getUserName()
+    if not username or username == '':
+        username = getSecurityManager().getUser().getId()
     activities.addActivity(DateTime(),
                            "edited",
                             username,

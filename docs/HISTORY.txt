@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.0b5 (2010-03-20)
+------------------
+
+- Show user id if no user name is available. [timo]
+
+
 1.0b4 (2010-02-05)
 ------------------
 
