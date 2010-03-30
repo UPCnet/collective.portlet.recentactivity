@@ -34,4 +34,4 @@ class RecentActivityView(BrowserView):
     def recent_activities(self):
         context = aq_inner(self.context)
         u = getUtility(IRecentActivityUtility)
-        return u.getRecentActivity(5)
+        return u.getRecentActivity(100)

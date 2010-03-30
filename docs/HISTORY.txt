@@ -4,6 +4,7 @@ Changelog
 1.0b5 (2010-03-20)
 ------------------
 
+- Show 100 recent activity items instead of only 5 in the recent activity view. [timo]
 - Show user id if no user name is available. [timo]
 
 
