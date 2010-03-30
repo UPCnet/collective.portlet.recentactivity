@@ -1,4 +1,6 @@
+import time
 from datetime import datetime
+from utils import compute_time
 import logging
 import Globals
 import os.path
@@ -33,5 +35,15 @@ class RecentActivityView(BrowserView):
 
     def recent_activities(self):
         context = aq_inner(self.context)
-        u = getUtility(IRecentActivityUtility)
-        return u.getRecentActivity(100)
+        activities = getUtility(IRecentActivityUtility)
+        for brain in activities.getRecentActivity(100):
+             activity = brain[1]
+             yield dict(time=compute_time(int(time.time()) - brain[0]),
+                        action=activity['action'],
+                        user=activity['user'],
+                        user_url="%s/author/%s" % (context.portal_url(), activity['user']),
+                        object=activity['object'],
+                        object_url=activity['object_url'],
+                        parent=activity['parent'],
+                        parent_url=activity['parent_url'],
+                        )

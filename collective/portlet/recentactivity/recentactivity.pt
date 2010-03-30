@@ -49,26 +49,30 @@
                     <th i18n:translate="column_label_action">Action</th>
                     <th i18n:translate="column_label_user">User</th>
                     <th i18n:translate="column_label_object">Object</th>
-                    <th i18n:translate="column_label_parent">Parent</th>                    
+                    <th i18n:translate="column_label_parent">Parent</th>
+                    <th i18n:translate="column_label_time">Time</th>                       
                 </tr>
             </thead>
             <tbody>
                 <tr tal:repeat="activity activities">
-                    <tal:define 
-                        tal:define="item python:activity[1]">
-                        <td tal:content="item/action" />
-                    	<td tal:content="item/user" />
-        	            <td>
-        	            	<a href=""
-        	            	   tal:content="python: item['object'].title"
-        	            	   tal:attributes="href python:context.absolute_url(item['object'])" />
-        	           	</td>
-        	            <td>
-        	            	<a href=""
-        	            	   tal:content="item/parent/title"
-        	            	   tal:attributes="href python:context.absolute_url(item['parent'])" />
-        	            </td>
-                    </tal:define>
+                    <td tal:content="activity/action" />
+                	<td tal:content="activity/user" />
+    	            <td>
+    	            	<a href=""
+    	            	   tal:content="python: activity['object'].title"
+    	            	   tal:attributes="href python:context.absolute_url(activity['object'])" />
+    	           	</td>
+    	            <td>
+    	            	<a href=""
+    	            	   tal:content="activity/parent/title"
+    	            	   tal:attributes="href python:context.absolute_url(activity['parent'])" />
+    	            </td>
+                    <td i18n:translate="">       
+                        <span tal:content="activity/time/days" i18n:name="days" /> days,
+                        <span tal:content="activity/time/hours" i18n:name="hours" /> hours, and
+                        <span tal:content="activity/time/minutes" i18n:name="minutes" /> minutes
+                        ago.
+                    </td>
                 </tr>
             </tbody>
         </table>
