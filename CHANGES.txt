@@ -1,12 +1,14 @@
 Changelog
 =========
 
-1.0b5 (2010-03-20)
+1.0b5 (2010-03-31)
 ------------------
 
+- Factored out subscriber declarations into its own ZCML file. [timo]
 - Batch view added to recent activity view. [timo]
 - Show time column in recent activity view. [timo]
-- Show 100 recent activity items instead of only 5 in the recent activity view. [timo]
+- Show 100 recent activity items instead of only 5 in the recent activity view. 
+  [timo]
 - Show user id if no user name is available. [timo]
 
 
