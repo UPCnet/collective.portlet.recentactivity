@@ -9,6 +9,8 @@ from Products.Five import BrowserView
 
 from zope.component import getUtility
 
+from plone.memoize.instance import memoize 
+
 from Acquisition import aq_parent
 from DateTime import DateTime
 
@@ -26,24 +28,33 @@ from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 class RecentActivityView(BrowserView):
 
     template = ViewPageTemplateFile('recentactivity.pt')
-
+    try:
+        template.id = '@@recent-activity'
+    except AttributeError:
+        # id is not writeable in Zope 2.12
+        pass
+    
     def __call__(self):
         """View the recent activity on a separate page.
         """
         self.request.set('disable_border', True)
         return self.template()
 
+    @memoize
     def recent_activities(self):
         context = aq_inner(self.context)
         activities = getUtility(IRecentActivityUtility)
-        for brain in activities.getRecentActivity(100):
-             activity = brain[1]
-             yield dict(time=compute_time(int(time.time()) - brain[0]),
-                        action=activity['action'],
-                        user=activity['user'],
-                        user_url="%s/author/%s" % (context.portal_url(), activity['user']),
-                        object=activity['object'],
-                        object_url=activity['object_url'],
-                        parent=activity['parent'],
-                        parent_url=activity['parent_url'],
-                        )
+        return [ dict(time=compute_time(int(time.time()) - activity[0]),
+                      action=activity[1]['action'],
+                      user=activity[1]['user'],
+                      user_url="%s/author/%s" % (context.portal_url(), activity[1]['user']),
+                      object=activity[1]['object'],
+                      object_url=activity[1]['object_url'],
+                      parent=activity[1]['parent'],
+                      parent_url=activity[1]['parent_url'],
+                      )
+                  for activity in activities.getRecentActivity(100)
+        ]
+        
+    def have_activities(self):
+        return len(self.activities()) > 0        

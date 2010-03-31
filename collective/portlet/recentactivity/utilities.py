@@ -46,12 +46,15 @@ class RecentActivityUtility(Persistent):
         #notifyContainerModified(self.activities)
         return timestamp
 
-    def getRecentActivity(self, items=5):
+    def getRecentActivity(self, items=None):
         """Get all activities stored in the BTree.
         """
         if self.activities:
-            # Return activities sorted by timestamp
-            return sorted(self.activities.items(), reverse=True)[:items]
+            if items:
+                # Return activities sorted by timestamp
+                return sorted(self.activities.items(), reverse=True)[:items]
+            else:
+                return sorted(self.activities.items(), reverse=True)
        
             
     def manage_fixupOwnershipAfterAdd(self):
