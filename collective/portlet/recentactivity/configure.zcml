@@ -10,6 +10,8 @@
     <five:registerPackage package="." initialize=".initialize" />
 
     <include package="plone.app.portlets" />
+    
+    <include file="subscribers.zcml" />    
 
     <i18n:registerTranslations directory="locales" />
     
@@ -39,14 +41,12 @@
         />
 
 	<!-- Register Viewlet -->
-	<!--
 	<browser:viewlet
         name="collective.portlet.recentactivity.RecentActivityViewlet"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
         class=".viewlet.RecentActivityViewlet"
         permission="zope2.View"
         />
-	-->
 
     <!-- Recent Activity Page -->
     <browser:page 
@@ -55,33 +55,5 @@
         class=".recentactivity.RecentActivityView" 
         permission="cmf.ManagePortal"
         />
-
-    <!-- Added Event Subscriber -->
-    <subscriber
-        handler=".events.Added"
-        for="Products.Archetypes.interfaces.IObjectInitializedEvent"
-        />
-
-    <!-- Edited Event Subscriber -->
-    <subscriber
-        handler=".events.Edited"
-        for="Products.Archetypes.interfaces.IObjectEditedEvent"
-        />
-
-	<!--      
-    <subscriber
-        handler=".events.Moved"
-        for="zope.app.container.interfaces.IObjectMovedEvent"
-        />
-        
-    <subscriber
-        handler=".events.Copied"
-        for="zope.app.event.interfaces.IObjectCopiedEvent"
-        />
-    <subscriber
-        handler=".events.Removed"
-        for="zope.app.container.interfaces.IObjectRemovedEvent"
-        />
-	-->
 
 </configure>
