@@ -32,7 +32,7 @@
 
     <!-- Register Portlet -->
     <plone:portlet
-        name="collective.portlet.recentactivity.RecentActivityPortlet"
+        name="collective.portlet.recentactivity.RecentActivityPortlet"        
         interface=".portlet.IRecentActivityPortlet"
         assignment=".portlet.Assignment"
         renderer=".portlet.Renderer"
@@ -42,7 +42,7 @@
 
 	<!-- Register Viewlet -->
 	<browser:viewlet
-        name="collective.portlet.recentactivity.RecentActivityViewlet"
+        name="collective.portlet.recentactivity.RecentActivityViewlet"        
         manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
         class=".viewlet.RecentActivityViewlet"
         permission="zope2.View"
@@ -50,7 +50,7 @@
 
     <!-- Recent Activity Page -->
     <browser:page 
-        for="Products.CMFCore.interfaces.ISiteRoot" 
+        for="Products.CMFCore.interfaces.ISiteRoot"
         name="recent-activity" 
         class=".recentactivity.RecentActivityView" 
         permission="cmf.ManagePortal"

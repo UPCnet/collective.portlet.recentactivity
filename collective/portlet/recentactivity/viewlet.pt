@@ -95,3 +95,13 @@
     </tal:items>
 
 </ol>
+
+<div id="mesnoticies" 
+     tal:define="pstate context/@@plone_context_state;" 
+     tal:condition="python:view.available and pstate.is_portal_root()">
+	<span class="mesnoticies">
+		<img width="10" height="10" src="mesnoticies.png"/>
+		<a href=""
+		   tal:attributes="href string:${context/portal_url}/@@recent-activity">Més activitat </a>
+	</span>
+</div>

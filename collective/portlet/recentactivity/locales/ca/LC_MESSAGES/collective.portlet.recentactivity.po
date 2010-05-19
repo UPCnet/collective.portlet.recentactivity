@@ -27,7 +27,7 @@ msgstr "${username} ha afegit ${object} a ${parent}"
 #: ./portlet.pt:63
 #: ./viewlet.pt:78
 msgid "${username} modified ${object}"
-msgstr "L'usuari ${username} ha modificat ${object}"
+msgstr "${username} ha modificat ${object}"
 
 #: ./portlet.py:45
 msgid "Add Recent Activity Portlet"
@@ -108,5 +108,5 @@ msgstr ""
 #. Default: "Recent Activities"
 #: ./viewlet.pt:7
 msgid "recent_activities"
-msgstr "Activitats Recents"
+msgstr "Activitat recent"
 

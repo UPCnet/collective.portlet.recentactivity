@@ -19,21 +19,24 @@ from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 
 class RecentActivityViewlet(ViewletBase):
     index = ViewPageTemplateFile('viewlet.pt')
-
+    
+   
     @property
     def available(self):
         """Show the portlet only to logged in users.
-        """
+        """        
         context = aq_inner(self.context)        
         portal_state = getMultiAdapter((context, self.request), name=u'plone_portal_state')
-        return not portal_state.anonymous()
+        if self.request.getURL() == self.site_url + '/front-page/document_view':
+             return not portal_state.anonymous()
+        
     
     def recent_activities(self):
         """Recent activities, most recent activities come first.
         """
-        context = aq_inner(self.context)
+        context = aq_inner(self.context)              
         if self._data():     
-            for brain in self._data():
+            for brain in self._data():                
                 activity = brain[1]
                 yield dict(time=compute_time(int(time.time()) - brain[0]),
                            action=activity['action'],

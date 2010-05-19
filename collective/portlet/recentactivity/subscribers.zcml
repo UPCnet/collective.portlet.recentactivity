@@ -5,7 +5,7 @@
 
     <!-- Plone 3 Event Subscribers -->
 
-    <configure zcml:condition="not-installed zope.app.container">
+    <configure zcml:condition="installed zope.app.container">
         
         <!-- Added Event Subscriber -->
         <subscriber
@@ -34,12 +34,12 @@
             for="zope.app.container.interfaces.IObjectRemovedEvent"
             />
         -->
-        
-    </configure>
+    </configure>    
+ 
 
     <!-- Plone 4 Event Subscribers -->
     
-    <configure zcml:condition="installed zope.app.container">
+    <configure zcml:condition="not-installed zope.app.container">
         <!-- XXX: Not implemented yet -->
     </configure>
     

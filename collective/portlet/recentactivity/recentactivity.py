@@ -42,7 +42,7 @@ class RecentActivityView(BrowserView):
 
     @memoize
     def recent_activities(self):
-        context = aq_inner(self.context)
+        context = aq_inner(self.context)        
         activities = getUtility(IRecentActivityUtility)
         return [ dict(time=compute_time(int(time.time()) - activity[0]),
                       action=activity[1]['action'],

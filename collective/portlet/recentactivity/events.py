@@ -19,9 +19,9 @@ from Acquisition import aq_inner
 
 from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 
-def Added(event):
+def Added(event):    
     activities = getUtility(IRecentActivityUtility)
-    username = getSecurityManager().getUser().getProperty('fullname')
+    username = getSecurityManager().getUser().getProperty('fullname')    
     if not username or username == '':
         username = getSecurityManager().getUser().getId()
     activities.addActivity(DateTime(),
