@@ -1,8 +1,9 @@
 from zope import schema
 
-from zope.interface import Interface, Attribute
+from zope.interface import Interface
 from plone.portlets.interfaces import IPortletDataProvider
-from collective.portlet.recentactivity import RecentActivityPortletMessageFactory as _
+from collective.portlet.recentactivity import \
+    RecentActivityPortletMessageFactory as _
 
 
 class IRecentActivityPortlet(IPortletDataProvider):
@@ -10,6 +11,7 @@ class IRecentActivityPortlet(IPortletDataProvider):
                        description=_(u'How many items to list.'),
                        required=True,
                        default=5)
+
 
 class IRecentActivityUtility(Interface):
     """ Utility to store recent activity.
@@ -24,4 +26,3 @@ class IRecentActivityUtility(Interface):
     def getRecentActivity(items):
         """Get recent activities.
         """
-
