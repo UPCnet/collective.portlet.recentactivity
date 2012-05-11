@@ -12,6 +12,7 @@ from collective.portlet.recentactivity import portlet as recentactivity
 
 from collective.portlet.recentactivity.tests.base import TestCase
 
+
 class TestPortlet(TestCase):
 
     def afterSetUp(self):
@@ -56,8 +57,9 @@ class TestPortlet(TestCase):
         renderer = getMultiAdapter((context, request, view, manager, assignment), IPortletRenderer)
         self.failUnless(isinstance(renderer, recentactivity.Renderer))
 
+
 class TestRenderer(TestCase):
-    
+
     def afterSetUp(self):
         self.setRoles(('Manager',))
         self.portal.invokeFactory('Folder', 'cf1')
@@ -72,9 +74,10 @@ class TestRenderer(TestCase):
         return getMultiAdapter((context, request, view, manager, assignment), IPortletRenderer)
 
     def test_count(self):
-        r = self.renderer(context=self.portal.cf1, assignment=recentactivity.Assignment(count=5))
+        self.renderer(context=self.portal.cf1, assignment=recentactivity.Assignment(count=5))
         #self.failUnless(r.recent_activities())
         #self.assertEquals(5, len([p for p in r.recent_activities()]))
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite

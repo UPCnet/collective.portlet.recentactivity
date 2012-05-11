@@ -2,7 +2,7 @@ Introduction
 ============
 
 collective.portlet.recentactivity provides a Portlet and a Viewlet
-with Facebook like entries on recent user activities, e.g. "the 
+with Facebook like entries on recent user activities, e.g. "the
 user admin added 'News Item 1' to 'News' 10 minutes ago".
 
 By default, the Recent Activity Viewlet is not registered. If you want
@@ -20,7 +20,7 @@ code to your configure.zcml::
 Buildout Installation
 =====================
 
-To install collective.portlet.recentactivity, add the following code 
+To install collective.portlet.recentactivity, add the following code
 to your buildout.cfg::
 
     [instance]
@@ -39,6 +39,6 @@ to your buildout.cfg::
 Known Issues
 ============
 
-The log entries only work for Archetype content types. Though, it 
+The log entries only work for Archetype content types. Though, it
 should be fairly easy to replace the Archetype specific event handlers
 with ones that work for other types of content.

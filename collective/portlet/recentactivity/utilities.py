@@ -1,13 +1,8 @@
 # -*- encoding: utf-8 -*-
-
 import time
-
 from zope.interface import implements
-
 from BTrees.OOBTree import OOBTree
-
 from persistent import Persistent
-
 from collective.portlet.recentactivity.interfaces import IRecentActivityUtility
 
 
@@ -22,13 +17,14 @@ class RecentActivityUtility(Persistent):
     def __init__(self):
         self.activities = OOBTree()
 
-    def addActivity(self, timestamp, action, user, object, parent):
+    def addActivity(self, timestamp, action, user, fullname, object, parent):
         """Add an activity to the BTree.
         """
 
         timestamp = int(time.time())
         activity = {'action': action,
                     'user': user,
+                    'fullname': fullname,
                     'object': object,
                     'object_url': object.absolute_url(),
                     'parent': parent,
@@ -51,7 +47,6 @@ class RecentActivityUtility(Persistent):
                 return sorted(self.activities.items(), reverse=True)[:items]
             else:
                 return sorted(self.activities.items(), reverse=True)
-
 
     def manage_fixupOwnershipAfterAdd(self):
         """This is needed, otherwise we get an Attribute Error

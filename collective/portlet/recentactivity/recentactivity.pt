@@ -34,7 +34,7 @@
                     <th i18n:translate="column_label_user">User</th>
                     <th i18n:translate="column_label_object">Object</th>
                     <th i18n:translate="column_label_parent">Parent</th>
-                    <th i18n:translate="column_label_time">Time</th>                       
+                    <th i18n:translate="column_label_time">Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,7 +51,7 @@
     	            	   tal:content="activity/parent/title"
     	            	   tal:attributes="href python:context.absolute_url(activity['parent'])" />
     	            </td>
-                    <td i18n:translate="">       
+                    <td i18n:translate="">
                         <span tal:content="activity/time/days" i18n:name="days" /> days,
                         <span tal:content="activity/time/hours" i18n:name="hours" /> hours, and
                         <span tal:content="activity/time/minutes" i18n:name="minutes" /> minutes
@@ -61,9 +61,9 @@
             </tbody>
         </table>
         <div metal:use-macro="here/batch_macros/macros/navigation" />
-        
+
         </tal:block>
-        
+
     </tal:main-macro>
 </metal:main>
 

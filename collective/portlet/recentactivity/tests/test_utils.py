@@ -1,13 +1,11 @@
 from collective.portlet.recentactivity.tests.base import TestCase
-
-from Products.CMFCore.utils import getToolByName
-
 from collective.portlet.recentactivity.utils import *
+
 
 class TestComputeTime(TestCase):
 
     def test_seconds(self):
-        self.assertEquals(compute_time(12), 
+        self.assertEquals(compute_time(12),
                           {'hours': 0, 'minutes': 0, 'days': 0})
 
     def test_minutes(self):
@@ -15,7 +13,7 @@ class TestComputeTime(TestCase):
                           {'hours': 0, 'minutes': 1, 'days': 0})
 
     def test_hours(self):
-        self.assertEquals(compute_time(7260), 
+        self.assertEquals(compute_time(7260),
                           {'hours': 2, 'minutes': 1, 'days': 0})
 
     def test_days(self):
@@ -24,6 +22,7 @@ class TestComputeTime(TestCase):
         # 1 hour = 3600 seconds
         self.assertEquals(compute_time(172800),
                           {'hours': 0, 'minutes': 0, 'days': 2})
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite

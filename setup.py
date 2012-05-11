@@ -1,7 +1,6 @@
 from setuptools import setup, find_packages
-import os
 
-version = '1.0b5'
+version = '1.0b7'
 
 setup(name='collective.portlet.recentactivity',
       version=version,

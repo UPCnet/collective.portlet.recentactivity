@@ -10,17 +10,17 @@
     <five:registerPackage package="." initialize=".initialize" />
 
     <include package="plone.app.portlets" />
-    
-    <include file="subscribers.zcml" />    
+
+    <include file="subscribers.zcml" />
 
     <i18n:registerTranslations directory="locales" />
-    
+
 	<!-- Recent Activity Utility -->
 	<utility
  		provides=".interfaces.IRecentActivityUtility"
  		factory=".utilities.RecentActivityUtility"
  		/>
- 
+
     <!-- Generic Setup -->
     <genericsetup:registerProfile
         name="collective.portlet.recentactivity"
@@ -32,7 +32,7 @@
 
     <!-- Register Portlet -->
     <plone:portlet
-        name="collective.portlet.recentactivity.RecentActivityPortlet"        
+        name="collective.portlet.recentactivity.RecentActivityPortlet"
         interface=".portlet.IRecentActivityPortlet"
         assignment=".portlet.Assignment"
         renderer=".portlet.Renderer"
@@ -42,17 +42,17 @@
 
 	<!-- Register Viewlet -->
 	<browser:viewlet
-        name="collective.portlet.recentactivity.RecentActivityViewlet"        
+        name="collective.portlet.recentactivity.RecentActivityViewlet"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
         class=".viewlet.RecentActivityViewlet"
         permission="zope2.View"
         />
 
     <!-- Recent Activity Page -->
-    <browser:page 
+    <browser:page
         for="Products.CMFCore.interfaces.ISiteRoot"
-        name="recent-activity" 
-        class=".recentactivity.RecentActivityView" 
+        name="recent-activity"
+        class=".recentactivity.RecentActivityView"
         permission="cmf.ManagePortal"
         />
 

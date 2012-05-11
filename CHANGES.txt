@@ -1,13 +1,19 @@
 Changelog
 =========
 
+1.0b7 (2012-04-24)
+------------------
+
+- PEP8 package adapted [robdayz]
+- Added fullname to activities -> Show names without spaces in activities [robdayz]
+
 1.0b5 (2010-03-31)
 ------------------
 
 - Factored out subscriber declarations into its own ZCML file. [timo]
 - Batch view added to recent activity view. [timo]
 - Show time column in recent activity view. [timo]
-- Show 100 recent activity items instead of only 5 in the recent activity view. 
+- Show 100 recent activity items instead of only 5 in the recent activity view.
   [timo]
 - Show user id if no user name is available. [timo]
 
@@ -30,7 +36,7 @@ Changelog
 1.0b2 (2010-01-27)
 ------------------
 
-- Fix "iteration over non-sequence" error, when there are no recent 
+- Fix "iteration over non-sequence" error, when there are no recent
   activities. [timo]
 
 
